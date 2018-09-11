@@ -714,6 +714,11 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 61920070671965032, guid: 644658551dd1742dcbb0c4df0a202951,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: 0.055
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 644658551dd1742dcbb0c4df0a202951, type: 2}
   m_IsPrefabAsset: 0
@@ -858,6 +863,11 @@ Prefab:
         type: 2}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61920070671965032, guid: 644658551dd1742dcbb0c4df0a202951,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: 0.055
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 644658551dd1742dcbb0c4df0a202951, type: 2}
