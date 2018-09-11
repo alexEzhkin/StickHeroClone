@@ -1,16 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class RunScript : MonoBehaviour {
+public class RunScript : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+{
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if(BridgeScript.instance != null)
+        {
+            BridgeScript.instance.SePower(true);
+        }
+    }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        if (BridgeScript.instance != null)
+        {
+            BridgeScript.instance.SePower(false);
+            //if(PlayerScript.instance != null)
+            //{
+            //    PlayerScript.instance.SetPower(false);
+            //}
+        }
+    }
 }

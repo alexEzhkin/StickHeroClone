@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 30731232}
   - component: {fileID: 30731231}
   - component: {fileID: 30731230}
+  - component: {fileID: 30731233}
   m_Layer: 5
   m_Name: Run button
   m_TagString: Untagged
@@ -224,6 +225,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 30731228}
   m_CullTransparentMesh: 0
+--- !u!114 &30731233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 30731228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aee8545065bc4c30b39f40f9266bc38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &80452865
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +341,7 @@ GameObject:
   - component: {fileID: 337512728}
   - component: {fileID: 337512727}
   - component: {fileID: 337512729}
+  - component: {fileID: 337512730}
   m_Layer: 0
   m_Name: Bridge
   m_TagString: Untagged
@@ -420,6 +433,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.04, y: 5.12}
   m_EdgeRadius: 0
+--- !u!114 &337512730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 337512726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9676c691c94ae49c0b70683a91c1dbac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceY: 0
 --- !u!1 &474963650
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,7 +457,7 @@ GameObject:
   - component: {fileID: 474963651}
   m_Layer: 0
   m_Name: MiddlePlatform
-  m_TagString: Untagged
+  m_TagString: MiddlePlatformTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -446,7 +471,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -515,8 +540,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 474963650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.21566, y: -3.53668, z: 0}
-  m_LocalScale: {x: 0.31477442, y: 0.4099765, z: 1}
+  m_LocalPosition: {x: -0.2157, y: -3.5616, z: 0}
+  m_LocalScale: {x: 0.31477442, y: 0.40288392, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -679,9 +704,35 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 61920070671965032, guid: 644658551dd1742dcbb0c4df0a202951,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 61231341223496198, guid: 644658551dd1742dcbb0c4df0a202951,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 644658551dd1742dcbb0c4df0a202951, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &952580013 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1617216270955164, guid: 64762558a399e46da97c94d84dd36a48,
+    type: 2}
+  m_PrefabInternal: {fileID: 567172772}
+--- !u!114 &952580019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 952580013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 594f9179021dc4d7fb75225b20a6f75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1030373832
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,6 +844,20 @@ Prefab:
     - target: {fileID: 1664096638548748, guid: 644658551dd1742dcbb0c4df0a202951, type: 2}
       propertyPath: m_Name
       value: Platform (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664096638548748, guid: 644658551dd1742dcbb0c4df0a202951, type: 2}
+      propertyPath: m_TagString
+      value: PlatformTag
+      objectReference: {fileID: 0}
+    - target: {fileID: 61920070671965032, guid: 644658551dd1742dcbb0c4df0a202951,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 61231341223496198, guid: 644658551dd1742dcbb0c4df0a202951,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 644658551dd1742dcbb0c4df0a202951, type: 2}
