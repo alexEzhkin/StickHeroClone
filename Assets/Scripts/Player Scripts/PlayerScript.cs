@@ -9,7 +9,10 @@ public class PlayerScript : MonoBehaviour {
     private bool setPower;
 
     Transform run;
-    private Rigidbody2D myBody;
+    //private Rigidbody2D myBody;
+
+    GameObject platform;
+    GameObject bridge;
 
     void Awake()
     {
@@ -29,7 +32,7 @@ public class PlayerScript : MonoBehaviour {
 
     void Initialize()
     {
-        myBody = GetComponent<Rigidbody2D>();
+        //myBody = GetComponent<Rigidbody2D>();
         run = GetComponent<Transform>();
     }
 
@@ -53,8 +56,26 @@ public class PlayerScript : MonoBehaviour {
     {
         if(collision.tag == "PlatformTag")
         {
-            Debug.Log("5");
-            Debug.Log("Landed on Platform");
+            platform = collision.gameObject;
+            //Debug.Log("5");
+            //Debug.Log("Landed on Platform");
+
+            ////
+            //platform = GameObject.FindWithTag("PlatformTag");
+            //var a = platform.transform.position.x;
+            //Debug.Log(a);
+            //
+
+            //
+            bridge = GameObject.FindWithTag("BridgeTag");
+            bridge.transform.position = new Vector2(platform.transform.position.x + platform.transform.localScale.x, bridge.transform.position.y);
+            //
+            bridge.transform.localScale = new Vector2(0.07007502f, 0.005975496f);
+            Vector3 aaa = bridge.transform.rotation.eulerAngles;
+            aaa.z = 0;
+            bridge.transform.rotation = Quaternion.Euler(aaa);
+            //
+
             if(PlayerScript.instance != null)
             {
                 Debug.Log("2");

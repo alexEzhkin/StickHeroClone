@@ -6,6 +6,8 @@ TagManager:
   tags:
   - MiddlePlatformTag
   - PlatformTag
+  - BridgeTag
+  - ExtraPointTag
   layers:
   - Default
   - TransparentFX

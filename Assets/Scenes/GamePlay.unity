@@ -233,7 +233,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 30731228}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aee8545065bc4c30b39f40f9266bc38, type: 3}
+  m_Script: {fileID: 11500000, guid: 23e4942f56f2f4666bb02164858013b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &80452865
@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 337512730}
   m_Layer: 0
   m_Name: Bridge
-  m_TagString: Untagged
+  m_TagString: BridgeTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -402,7 +402,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 337512726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.4444, y: -2.0826, z: 0}
+  m_LocalPosition: {x: -1.4444, y: -2.1, z: 0}
   m_LocalScale: {x: 0.07007502, y: 0.005975496, z: 0.034480646}
   m_Children: []
   m_Father: {fileID: 0}
@@ -441,7 +441,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 337512726}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9676c691c94ae49c0b70683a91c1dbac, type: 3}
+  m_Script: {fileID: 11500000, guid: dbada2aee24a44a92926bb8be7c8f04b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   forceY: 0
@@ -523,7 +523,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ea6f6bcd818f1421499910d1310f543b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -540,8 +540,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 474963650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2157, y: -3.5616, z: 0}
-  m_LocalScale: {x: 0.31477442, y: 0.40288392, z: 1}
+  m_LocalPosition: {x: 0, y: -3.5616, z: 0}
+  m_LocalScale: {x: 0.85, y: 0.41416466, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -632,11 +632,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4362286886737096, guid: 64762558a399e46da97c94d84dd36a48, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.01
+      value: -2.079
       objectReference: {fileID: 0}
     - target: {fileID: 4362286886737096, guid: 64762558a399e46da97c94d84dd36a48, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.26
+      value: -1.714
       objectReference: {fileID: 0}
     - target: {fileID: 4362286886737096, guid: 64762558a399e46da97c94d84dd36a48, type: 2}
       propertyPath: m_LocalPosition.z
@@ -719,6 +719,10 @@ Prefab:
       propertyPath: m_Offset.y
       value: 0.055
       objectReference: {fileID: 0}
+    - target: {fileID: 1664096638548748, guid: 644658551dd1742dcbb0c4df0a202951, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 644658551dd1742dcbb0c4df0a202951, type: 2}
   m_IsPrefabAsset: 0
@@ -727,7 +731,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1617216270955164, guid: 64762558a399e46da97c94d84dd36a48,
     type: 2}
   m_PrefabInternal: {fileID: 567172772}
---- !u!114 &952580019
+--- !u!114 &952580014
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -735,9 +739,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 952580013}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 594f9179021dc4d7fb75225b20a6f75a, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d2ece264cd5d4ad4bb1cda6550f892f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  setPower: 0
 --- !u!1 &1030373832
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,7 +950,7 @@ GameObject:
   - component: {fileID: 2059483668}
   m_Layer: 0
   m_Name: ExtraPoint
-  m_TagString: Untagged
+  m_TagString: ExtraPointTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1003,8 +1008,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2059483667}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.48, y: -2.04, z: 0}
-  m_LocalScale: {x: 0.0539716, y: 0.0046750004, z: 1}
+  m_LocalPosition: {x: 1.55, y: -2.16, z: 0}
+  m_LocalScale: {x: 0.30573064, y: 0.05743409, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
