@@ -339,6 +339,7 @@
     <Compile Include="Assets\Scripts\Bridge Scripts\BridgeScript.cs" />
     <Compile Include="Assets\Scripts\Bridge Scripts\BridgeScript1.cs" />
     <Compile Include="Assets\Scripts\ExtraPoint Scripts\ExtraPointScript.cs" />
+    <Compile Include="Assets\Scripts\Game Manager Script\GameManager.cs" />
     <Compile Include="Assets\Scripts\MiddlePlatform Scripts\MiddlePlatformScript.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerScript.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerScript1.cs" />
