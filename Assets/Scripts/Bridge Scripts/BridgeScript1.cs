@@ -43,8 +43,13 @@ public class BridgeScript1 : MonoBehaviour
     {
         if(startBuild)
         {
+            if(transform.localScale.y >= 0.9f)
+            {
+                GameSoundManager.PlaySound("StopSound");
+            }
             if (transform.localScale.y <= 0.9f)
             {
+                GameSoundManager.PlaySound("BuildBridge");
                 forceY += tresholdY * Time.deltaTime;
                 doIt.transform.localScale = new Vector2(doIt.transform.localScale.x, forceY);
             }
@@ -56,6 +61,7 @@ public class BridgeScript1 : MonoBehaviour
         this.startBuild = startBuild;
         if(!startBuild)
         {
+            GameSoundManager.PlaySound("StopSound");
             rotationVector = transform.rotation.eulerAngles;
             rotationVector.z = -90;
             transform.rotation = Quaternion.Euler(rotationVector);

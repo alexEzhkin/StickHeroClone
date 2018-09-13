@@ -23,6 +23,7 @@ public class PlayerScript1 : MonoBehaviour
     {
         if (setPower == true)
         {
+            GameSoundManager.PlaySound("Run");
             var position = run.position;
             position.x += Time.deltaTime;
             run.position = position;
@@ -44,6 +45,7 @@ public class PlayerScript1 : MonoBehaviour
     {
         if (collision.tag == "PlatformTag")
         {
+            GameSoundManager.PlaySound("StopSound");
             platform = collision.gameObject;
 
             bridge = GameObject.FindWithTag("BridgeTag");
@@ -71,6 +73,9 @@ public class PlayerScript1 : MonoBehaviour
 
         if (collision.tag == "MiddlePlatformTag")
         {
+            GameSoundManager.PlaySound("StopSound");
+            setPower = false;
+            GameSoundManager.PlaySound("Death");
             Debug.Log("Fall");
         }
     }
