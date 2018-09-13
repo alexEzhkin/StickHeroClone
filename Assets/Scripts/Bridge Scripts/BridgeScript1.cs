@@ -75,5 +75,29 @@ public class BridgeScript1 : MonoBehaviour
             PlayerScript1.instance.setPower = true;
         }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "ExtraPointTag")
+        {
+            Debug.Log("first");
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "ExtraPointTag")
+        {
+            Debug.Log("second");
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "ExtraPointTag")
+        {
+            Debug.Log("third");
+        }
+    }
 }
 

@@ -51,7 +51,6 @@ public class GameManager : MonoBehaviour {
             lerpCamera = false;
             middlePlatform = GameObject.FindWithTag("MiddlePlatformTag");
             middlePlatform.transform.position = new Vector2(Camera.main.transform.position.x, middlePlatform.transform.position.y);
-            //Instantiate(middlePlatform, new Vector2(Camera.main.transform.position.x, middlePlatform.transform.position.y),Quaternion.identity);
         }
     }
 
