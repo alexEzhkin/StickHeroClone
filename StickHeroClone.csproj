@@ -341,6 +341,7 @@
     <Compile Include="Assets\Scripts\ExtraPoint Scripts\ExtraPointScript.cs" />
     <Compile Include="Assets\Scripts\ExtraPoint Scripts\ExtraPointScript1.cs" />
     <Compile Include="Assets\Scripts\Game Manager Script\GameManager.cs" />
+    <Compile Include="Assets\Scripts\MainMenuScripts\MainMenuScript.cs" />
     <Compile Include="Assets\Scripts\MiddlePlatform Scripts\MiddlePlatformScript.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerScript.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerScript1.cs" />
@@ -348,6 +349,7 @@
     <Compile Include="Assets\Scripts\Run Scripts\RunScript1.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Font\license.txt" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Dark.uss" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Light.uss" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\Alert.uxml" />

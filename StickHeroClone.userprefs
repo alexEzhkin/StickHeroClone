@@ -1,10 +1,11 @@
 ﻿<Properties StartupConfiguration="{AD8F21B0-5E0A-FB6A-2C6E-8BE5C077CA3D}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player Scripts/PlayerScript1.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MainMenuScripts/MainMenuScript.cs">
     <Files>
       <File FileName="Assets/Scripts/Run Scripts/RunScript1.cs" Line="21" Column="6" />
-      <File FileName="Assets/Scripts/Player Scripts/PlayerScript1.cs" Line="52" Column="59" />
+      <File FileName="Assets/Scripts/Player Scripts/PlayerScript1.cs" Line="13" Column="25" />
       <File FileName="Assets/Scripts/Bridge Scripts/BridgeScript1.cs" Line="97" Column="45" />
       <File FileName="Assets/Scripts/Game Manager Script/GameManager.cs" Line="54" Column="1" />
+      <File FileName="Assets/Scripts/MainMenuScripts/MainMenuScript.cs" Line="7" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
