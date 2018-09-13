@@ -47,4 +47,17 @@ public class GameSoundManager : MonoBehaviour {
                 break;
         }
     }
+
+    public static void MuteSound()
+    {
+        AudioListener.volume = 0;
+        Debug.Log(AudioListener.volume);
+        //audioSrc.mute = true;
+    }
+
+    public static void ActiveSound()
+    {
+        AudioListener.volume = 1;
+        Debug.Log(AudioListener.volume);
+    }
 }

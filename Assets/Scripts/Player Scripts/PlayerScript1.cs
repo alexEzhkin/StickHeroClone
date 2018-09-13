@@ -64,10 +64,16 @@ public class PlayerScript1 : MonoBehaviour
             {
                 RunScript1.instance.StartAll();
             }
+
             if (GameManager.instance != null)
             {
                 Debug.Log("Landed on platform after jumping");
                 GameManager.instance.CreateNewPlatformAndLerp(collision.transform.position.x);
+            }
+
+            if(ScoreManager.instance != null)
+            {
+                ScoreManager.instance.IncrementScore();
             }
         }
 
@@ -77,6 +83,10 @@ public class PlayerScript1 : MonoBehaviour
             setPower = false;
             GameSoundManager.PlaySound("Death");
             Debug.Log("Fall");
+            if(GameOverManager.instance != null)
+            {
+                GameOverManager.instance.GameOverPanelShow();
+            }
         }
     }
 }
