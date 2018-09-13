@@ -11,6 +11,10 @@ public class BridgeScript1 : MonoBehaviour
 
     private float tresholdY = 0.78957f;
 
+    private float bridgeMaxScaleY = 0.9f;
+
+    private float bridgeRotationAngle = -90;
+
     Transform doIt;
 
     private bool startBuild;
@@ -43,11 +47,11 @@ public class BridgeScript1 : MonoBehaviour
     {
         if(startBuild)
         {
-            if(transform.localScale.y >= 0.9f)
+            if(transform.localScale.y >= bridgeMaxScaleY)
             {
                 GameSoundManager.PlaySound("StopSound");
             }
-            if (transform.localScale.y <= 0.9f)
+            if (transform.localScale.y <= bridgeMaxScaleY)
             {
                 GameSoundManager.PlaySound("BuildBridge");
                 forceY += tresholdY * Time.deltaTime;
@@ -63,7 +67,7 @@ public class BridgeScript1 : MonoBehaviour
         {
             GameSoundManager.PlaySound("StopSound");
             rotationVector = transform.rotation.eulerAngles;
-            rotationVector.z = -90;
+            rotationVector.z = bridgeRotationAngle;
             transform.rotation = Quaternion.Euler(rotationVector);
             forceY = 0f;
             StopRun();
@@ -82,28 +86,28 @@ public class BridgeScript1 : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "ExtraPointTag")
-        {
-            Debug.Log("first");
-        }
-    }
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.tag == "ExtraPointTag")
+    //    {
+    //        Debug.Log("first");
+    //    }
+    //}
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.tag == "ExtraPointTag")
-        {
-            Debug.Log("second");
-        }
-    }
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    if (collision.tag == "ExtraPointTag")
+    //    {
+    //        Debug.Log("second");
+    //    }
+    //}
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "ExtraPointTag")
-        {
-            Debug.Log("third");
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.tag == "ExtraPointTag")
+    //    {
+    //        Debug.Log("third");
+    //    }
+    //}
 }
 

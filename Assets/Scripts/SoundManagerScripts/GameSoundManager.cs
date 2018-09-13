@@ -15,11 +15,6 @@ public class GameSoundManager : MonoBehaviour {
 
         audioSrc = GetComponent<AudioSource>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public static void PlaySound (string clip)
     {
@@ -52,7 +47,6 @@ public class GameSoundManager : MonoBehaviour {
     {
         AudioListener.volume = 0;
         Debug.Log(AudioListener.volume);
-        //audioSrc.mute = true;
     }
 
     public static void ActiveSound()

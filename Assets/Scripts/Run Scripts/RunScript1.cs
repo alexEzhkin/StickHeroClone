@@ -24,8 +24,6 @@ public class RunScript1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if (BridgeScript1.instance != null)
         {
-            Debug.Log("aaa");
-            //BridgeScript1.instance.SePower(true);
             BridgeScript1.instance.BuildBridge(true);
         }
     }
@@ -34,12 +32,7 @@ public class RunScript1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if (BridgeScript1.instance != null)
         {
-            //BridgeScript1.instance.SePower(false);
             BridgeScript1.instance.BuildBridge(false);
-            //if(PlayerScript.instance != null)
-            //{
-            //    PlayerScript.instance.SetPower(false);
-            //}
         }
     }
 
@@ -48,12 +41,12 @@ public class RunScript1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         var pointer = GetComponents<IPointerUpHandler>();
         if (pointer != null)
         {
-            foreach (var p in pointer)
+            foreach (var item in pointer)
             {
-                var mp = p as MonoBehaviour;
-                if (mp != null)
+                var poindHandler = item as MonoBehaviour;
+                if (poindHandler != null)
                 {
-                    mp.enabled = false;
+                    poindHandler.enabled = false;
                 }
             }
         }
@@ -64,12 +57,12 @@ public class RunScript1 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         var pointer = GetComponents<IPointerUpHandler>();
         if (pointer != null)
         {
-            foreach (var p in pointer)
+            foreach (var item in pointer)
             {
-                var mp = p as MonoBehaviour;
-                if (mp != null)
+                var poindHandler = item as MonoBehaviour;
+                if (poindHandler != null)
                 {
-                    mp.enabled = true;
+                    poindHandler.enabled = true;
                 }
             }
         }

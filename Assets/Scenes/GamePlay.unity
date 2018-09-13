@@ -904,7 +904,7 @@ CanvasGroup:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 594863037}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -1035,7 +1035,7 @@ Transform:
   m_GameObject: {fileID: 621596628}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.96, y: -3.55, z: 0}
-  m_LocalScale: {x: 0.48572016, y: 0.67121834, z: 1}
+  m_LocalScale: {x: 0.4857202, y: 0.67121834, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -1172,6 +1172,10 @@ Prefab:
     - target: {fileID: 1664096638548748, guid: 644658551dd1742dcbb0c4df0a202951, type: 2}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037770152731510, guid: 644658551dd1742dcbb0c4df0a202951, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.4857202
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 644658551dd1742dcbb0c4df0a202951, type: 2}

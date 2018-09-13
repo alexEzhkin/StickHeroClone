@@ -8,7 +8,10 @@ public class PlayerScript1 : MonoBehaviour
 
     public bool setPower;
 
-    Transform run;
+    private float bridgeScaleX = 0.07007502f;
+    private float bridgeScaleY = 0.005975496f;
+
+    Transform runPlayer;
 
     GameObject platform;
     GameObject bridge;
@@ -24,15 +27,15 @@ public class PlayerScript1 : MonoBehaviour
         if (setPower == true)
         {
             GameSoundManager.PlaySound("Run");
-            var position = run.position;
+            var position = runPlayer.position;
             position.x += Time.deltaTime;
-            run.position = position;
+            runPlayer.position = position;
         }
     }
 
     void Initialize()
     {
-        run = GetComponent<Transform>();
+        runPlayer = GetComponent<Transform>();
     }
 
     void MakeInstance()
@@ -46,19 +49,20 @@ public class PlayerScript1 : MonoBehaviour
         if (collision.tag == "PlatformTag")
         {
             GameSoundManager.PlaySound("StopSound");
+            GameSoundManager.PlaySound("Point");
             platform = collision.gameObject;
 
             bridge = GameObject.FindWithTag("BridgeTag");
             bridge.transform.position = new Vector2(platform.transform.position.x + platform.transform.localScale.x, bridge.transform.position.y);
 
-            bridge.transform.localScale = new Vector2(0.07007502f, 0.005975496f);
+            bridge.transform.localScale = new Vector2(bridgeScaleX, bridgeScaleY);
             Vector3 aaa = bridge.transform.rotation.eulerAngles;
             aaa.z = 0;
             bridge.transform.rotation = Quaternion.Euler(aaa);
 
             setPower = false;
 
-            run.position = new Vector2(platform.transform.position.x, run.transform.position.y);
+            runPlayer.position = new Vector2(platform.transform.position.x, runPlayer.transform.position.y);
 
             if(RunScript1.instance != null)
             {
@@ -81,8 +85,8 @@ public class PlayerScript1 : MonoBehaviour
         {
             GameSoundManager.PlaySound("StopSound");
             setPower = false;
+
             GameSoundManager.PlaySound("Death");
-            Debug.Log("Fall");
             if(GameOverManager.instance != null)
             {
                 GameOverManager.instance.GameOverPanelShow();

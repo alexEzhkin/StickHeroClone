@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour {
 
     private float minX = -2.5f, maxX = 2.5f;
 
+    private float halfOfScreen = 1.2f;
+
     private bool lerpCamera;
     private float lerpTime = 1.5f;
     private float lerpX;
@@ -68,6 +70,6 @@ public class GameManager : MonoBehaviour {
 
         float newMaxX = (maxX * 2) + cameraX;
 
-        Instantiate(platform, new Vector3(Random.Range(newMaxX, newMaxX - 1.2f), platform.transform.position.y, 0), Quaternion.identity);
+        Instantiate(platform, new Vector3(Random.Range(newMaxX, newMaxX - halfOfScreen), platform.transform.position.y, 0), Quaternion.identity);
     }
 }
