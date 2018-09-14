@@ -10,6 +10,8 @@ public class PlayerScript : MonoBehaviour
 
     private float bridgeScaleX = 0.07007502f;
     private float bridgeScaleY = 0.005975496f;
+    Animator playerRunAnimation;
+    GameObject player;
     GameObject platform;
     GameObject bridge;
     Transform runPlayer;
@@ -29,6 +31,8 @@ public class PlayerScript : MonoBehaviour
     {
         if (isRun == true)
         {
+            //player.SetActive(true);
+            playerRunAnimation.Play("Run");
             GameSoundManager.PlaySound("Run");
             var position = runPlayer.position;
             position.x += Time.deltaTime;
@@ -44,6 +48,8 @@ public class PlayerScript : MonoBehaviour
         {
             GameSoundManager.PlaySound("StopSound");
             GameSoundManager.PlaySound("Point");
+            //player.SetActive(false);
+            playerRunAnimation.Play("Idle");
 
             platform = collision.gameObject;
 
@@ -92,6 +98,8 @@ public class PlayerScript : MonoBehaviour
     #region Private methods
     void Initialize()
     {
+        player = GameObject.Find("Player");
+        playerRunAnimation = player.GetComponent<Animator>();
         runPlayer = GetComponent<Transform>();
     }
 
