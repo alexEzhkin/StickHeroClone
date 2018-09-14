@@ -337,19 +337,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Bridge Scripts\BridgeScript.cs" />
-    <Compile Include="Assets\Scripts\Bridge Scripts\BridgeScript1.cs" />
-    <Compile Include="Assets\Scripts\ExtraPoint Scripts\ExtraPointScript.cs" />
-    <Compile Include="Assets\Scripts\ExtraPoint Scripts\ExtraPointScript1.cs" />
     <Compile Include="Assets\Scripts\Game Manager Script\GameManager.cs" />
     <Compile Include="Assets\Scripts\Game Manager Script\GameOverManager.cs" />
     <Compile Include="Assets\Scripts\Game Manager Script\HighScoreManager.cs" />
     <Compile Include="Assets\Scripts\Game Manager Script\ScoreManager.cs" />
     <Compile Include="Assets\Scripts\MainMenuScripts\MainMenuScript.cs" />
-    <Compile Include="Assets\Scripts\MiddlePlatform Scripts\MiddlePlatformScript.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerScript.cs" />
-    <Compile Include="Assets\Scripts\Player Scripts\PlayerScript1.cs" />
     <Compile Include="Assets\Scripts\Run Scripts\RunScript.cs" />
-    <Compile Include="Assets\Scripts\Run Scripts\RunScript1.cs" />
     <Compile Include="Assets\Scripts\SoundManagerScripts\GameSoundManager.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -2,28 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
 
+    #region Fields
     public static GameManager instance;
+
 
     [SerializeField]
     private GameObject platform;
-
     [SerializeField]
     private GameObject middlePlatform;
 
-    private float minX = -2.5f, maxX = 2.5f;
 
+    private float maxX = 2.5f;
     private float halfOfScreen = 1.2f;
-
     private bool lerpCamera;
     private float lerpTime = 1.5f;
     private float lerpX;
+    #endregion
 
+    #region Unity lifecycle
     void Awake()
     {
         MakeInstance();
     }
+
 
     void Update()
     {
@@ -32,7 +36,19 @@ public class GameManager : MonoBehaviour {
             LerpTheCamera();
         }
     }
+    #endregion
 
+    #region Public methods
+    public void CreateNewPlatformAndLerp(float lerpPosition)
+    {
+        CreateNewPlatform();
+
+        lerpX = lerpPosition + maxX;
+        lerpCamera = true;
+    }
+    #endregion
+
+    #region Private methods
     void MakeInstance()
     {
         if (instance == null)
@@ -40,6 +56,7 @@ public class GameManager : MonoBehaviour {
             instance = this;
         }
     }
+
 
     void LerpTheCamera()
     {
@@ -56,13 +73,6 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void CreateNewPlatformAndLerp(float lerpPosition)
-    {
-        CreateNewPlatform();
-
-        lerpX = lerpPosition + maxX;
-        lerpCamera = true;
-    }
 
     void CreateNewPlatform()
     {
@@ -72,4 +82,5 @@ public class GameManager : MonoBehaviour {
 
         Instantiate(platform, new Vector3(Random.Range(newMaxX, newMaxX - halfOfScreen), platform.transform.position.y, 0), Quaternion.identity);
     }
+    #endregion
 }

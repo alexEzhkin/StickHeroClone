@@ -2,97 +2,99 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BridgeScript : MonoBehaviour {
-
+public class BridgeScript : MonoBehaviour
+{
+    #region Fields
     public static BridgeScript instance;
+
 
     [SerializeField]
     private float forceY;
 
+
     private float tresholdY = 0.78957f;
+    private float bridgeMaxScaleY = 0.9f;
+    private float bridgeRotationAngle = -90;
+    private bool hasBuild;
+    Transform bridge;
+    Vector3 rotationVector;
+    #endregion
 
-    Transform doIt;
-    //BoxCollider2D aaa;
-    //Rigidbody2D rigid;
-
-    private bool sePower;
-
-    public Vector3 rotationVector;
-
+    #region Unity lifecycle
     void Awake()
     {
         MakeInstance();
         Initialize();
     }
 
+
+    void Update()
+    {
+        StartBuild();
+    }
+    #endregion
+
+    #region Public methods
+    public void BuildBridge(bool hasBuild)
+    {
+        this.hasBuild = hasBuild;
+        if (!hasBuild)
+        {
+            GameSoundManager.PlaySound("StopSound");
+            rotationVector = transform.rotation.eulerAngles;
+            rotationVector.z = bridgeRotationAngle;
+            transform.rotation = Quaternion.Euler(rotationVector);
+            forceY = 0f;
+            StartRun();
+
+            if (RunScript.instance != null)
+            {
+                RunScript.instance.StopAll();
+            }
+        }
+    }
+    #endregion
+
+    #region Private methods
     void Initialize()
     {
-        doIt = GetComponent<Transform>();
-        //aaa = GetComponent<BoxCollider2D>();
-        //rigid = GetComponent<Rigidbody2D>();
+        bridge = GetComponent<Transform>();
     }
+
 
     void MakeInstance()
     {
         if (instance == null)
+        {
             instance = this;
-    }
-
-    void Update()
-    {
-        SePower();
-        if (rotationVector.z == -90f)
-        {
-            sePower = false;
         }
     }
 
-    void SePower()
+
+    void StartBuild()
     {
-        if (sePower)
+        if (hasBuild)
         {
-            if (transform.localScale.y <= 0.9f)
-                forceY += tresholdY * Time.deltaTime;
-                doIt.transform.localScale = new Vector2(doIt.transform.localScale.x, forceY);
-        }
-    }
-
-    public void SePower(bool sePower)
-    {
-        this.sePower = sePower;
-        if (!sePower)
-        {
-            Change();
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.tag == "PlatformTag")
-        {
-            sePower = false;
-        }
-    }
-
-    void Change()
-    {
-        Debug.Log("We have released button");
-
-        rotationVector = transform.rotation.eulerAngles;
-        rotationVector.z = -90;
-        transform.rotation = Quaternion.Euler(rotationVector);
-        forceY = 0f;
-        StopRun();
-    }
-
-    void StopRun()
-    {
-            if (PlayerScript.instance != null)
+            if (transform.localScale.y >= bridgeMaxScaleY)
             {
-                PlayerScript.instance.SetPower(true);
+                GameSoundManager.PlaySound("StopSound");
             }
+            if (transform.localScale.y <= bridgeMaxScaleY)
+            {
+                GameSoundManager.PlaySound("BuildBridge");
+                forceY += tresholdY * Time.deltaTime;
+                bridge.transform.localScale = new Vector2(bridge.transform.localScale.x, forceY);
+            }
+        }
     }
 
 
-
+    void StartRun()
+    {
+        if (PlayerScript.instance != null)
+        {
+            PlayerScript.instance.isRun = true;
+        }
+    }
+    #endregion
 }

@@ -3,34 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameOverManager : MonoBehaviour {
+public class GameOverManager : MonoBehaviour
+{
 
+    #region Fields
     public static GameOverManager instance;
 
+
     private GameObject gameOverPanel;
-    private Animator gameOverAnimation;
-
-    private Button restartButton, backButton;
-
     private GameObject scoreText;
+    private Animator gameOverAnimation;
+    private Button restartButton, backButton;
     private Text finalScore;
     private Text bestScore;
     private int currentScore;
+    #endregion
 
+    #region Unity lifecycle
     void Awake()
     {
         MakeInstance();
         InitializeVariables();
     }
+    #endregion
 
-    void MakeInstance()
-    {
-        if(instance == null)
-        {
-            instance = this;
-        }
-    }
-
+    #region Public methods
     public void GameOverPanelShow()
     {
         scoreText.SetActive(false);
@@ -38,7 +35,7 @@ public class GameOverManager : MonoBehaviour {
 
         currentScore = ScoreManager.instance.GetScore();
 
-        if(currentScore >= HighScoreManager.HighScore)
+        if (currentScore >= HighScoreManager.HighScore)
         {
             HighScoreManager.UpdateHighScore(currentScore);
         }
@@ -50,6 +47,29 @@ public class GameOverManager : MonoBehaviour {
         gameOverAnimation.Play("FadeIn");
     }
 
+
+    public void PlayAgain()
+    {
+        Application.LoadLevel(Application.loadedLevelName);
+    }
+
+
+    public void BackToMenu()
+    {
+        Application.LoadLevel("MainMenu");
+    }
+    #endregion
+
+    #region Private methods
+    void MakeInstance()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
+
     void InitializeVariables()
     {
         gameOverPanel = GameObject.Find("GameOverPanelHolder");
@@ -58,8 +78,8 @@ public class GameOverManager : MonoBehaviour {
         restartButton = GameObject.Find("RestartButton").GetComponent<Button>();
         backButton = GameObject.Find("BackButton").GetComponent<Button>();
 
-        restartButton.onClick.AddListener (() => PlayAgain());
-        backButton.onClick.AddListener (() => BackToMenu());
+        restartButton.onClick.AddListener(() => PlayAgain());
+        backButton.onClick.AddListener(() => BackToMenu());
 
         scoreText = GameObject.Find("ScoreText");
         finalScore = GameObject.Find("GameOverScore").GetComponent<Text>();
@@ -68,14 +88,5 @@ public class GameOverManager : MonoBehaviour {
 
         gameOverPanel.SetActive(false);
     }
-
-    public void PlayAgain()
-    {
-        Application.LoadLevel(Application.loadedLevelName);
-    }
-
-    public void BackToMenu()
-    {
-        Application.LoadLevel("MainMenu");
-    }
+    #endregion
 }

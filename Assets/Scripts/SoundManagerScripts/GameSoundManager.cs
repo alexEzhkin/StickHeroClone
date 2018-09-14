@@ -2,32 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameSoundManager : MonoBehaviour {
-
+public class GameSoundManager : MonoBehaviour
+{
+    #region Fields
     public static AudioClip buildBridgeSound, runSound, deathSound, pointSound;
     static AudioSource audioSrc;
+    #endregion
 
-	void Start () {
+    #region Unity lifecycle
+    void Start()
+    {
         buildBridgeSound = Resources.Load<AudioClip>("BuildBridge");
         runSound = Resources.Load<AudioClip>("Run");
         deathSound = Resources.Load<AudioClip>("Death");
         pointSound = Resources.Load<AudioClip>("Point");
 
         audioSrc = GetComponent<AudioSource>();
-	}
+    }
+    #endregion
 
-    public static void PlaySound (string clip)
+    #region Public methods
+    public static void PlaySound(string clip)
     {
         switch (clip)
         {
             case "BuildBridge":
-                if(!audioSrc.isPlaying)
+                if (!audioSrc.isPlaying)
                 {
                     audioSrc.PlayOneShot(buildBridgeSound);
                 }
                 break;
             case "Run":
-                if(!audioSrc.isPlaying){
+                if (!audioSrc.isPlaying)
+                {
                     audioSrc.PlayOneShot(runSound);
                 }
                 break;
@@ -43,15 +50,16 @@ public class GameSoundManager : MonoBehaviour {
         }
     }
 
+
     public static void MuteSound()
     {
         AudioListener.volume = 0;
-        Debug.Log(AudioListener.volume);
     }
+
 
     public static void ActiveSound()
     {
         AudioListener.volume = 1;
-        Debug.Log(AudioListener.volume);
     }
+    #endregion
 }
